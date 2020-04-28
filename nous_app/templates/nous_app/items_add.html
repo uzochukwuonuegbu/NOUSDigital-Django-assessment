@@ -6,5 +6,16 @@
 <form action="", method="POST">
     {%csrf_token%}
     {{form|crispy}}
+
+    <div class="row">
+        <div class="col-md-8">
+            <button type="submit" class="btn btn-success btn-block btn-lg"><i class="fas fa-database"></i> Submit</button>
+        </div>
+        <div class="col-md-4">
+            <a href="{% url 'items_list' %}" class="btn btn-secondary btn-block btn-lg">
+                <i class="fas fa-stream"></i> Back To Items
+            </a>
+        </div>
+    </div>
 </form>
 {% endblock content %}

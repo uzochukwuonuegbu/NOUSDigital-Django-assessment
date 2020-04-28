@@ -4,6 +4,6 @@ from django.db import models
 
 class Item(models.Model):
     id = models.AutoField(primary_key=True)
-    title = models.CharField(max_length=100)
-    description = models.TextField(max_length=250)
-    image = models.URLField(max_length=200)
+    title = models.CharField(max_length=400)
+    description = models.TextField(max_length=1000)
+    image = models.URLField(max_length=300)
