@@ -1,4 +1,5 @@
 {% extends "nous_app/base.html" %}
+{% load static %}
 
 
 {% block content %}
@@ -19,13 +20,26 @@
         </td>
       </tr>
     </thead>
-    <tbody>
+    <tbody onload="runjs()">
       {% for item in items_list %}
 
       <tr>
         <td>{{item.title}}</td>
         <td>{{item.description}}</td>
-        <td><a href="mailto:https://someone@example.com">{{item.image}}</a></td>
+        <td><a class="mail-dialogue" href="mailto:uzochukwu.onuegbu25@gmail.com">{{item.image}}</a>
+            <script type="text/javascript">
+                function runjs() {
+                  var imageLink = document.querySelector(`.${item.description}`);
+                  var receiver = "uzochukwu.onuegbu25@gmail.com";
+                  var subject = item.title;
+                  var body = item.description;
+                  imageLink.setAttribute(
+                    "href",
+                    `mailto:${receiver}?subject=${subject}&body=${body}`
+                  );
+                }
+                </script>
+        </td>
         <td>
           <a
             href="{% url 'items_edit' item.id %}"
